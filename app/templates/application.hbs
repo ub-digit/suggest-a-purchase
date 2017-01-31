@@ -1,19 +1,19 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <h1>Föreslå ett inköp</h1>
+      <h1>{{t 'heading'}}</h1>
       <p class="lead">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus porta sem, non sodales ex imperdiet vitae. Phasellus fermentum ligula vitae neque viverra blandit.
+        {{t 'lead'}}
       </p>
       <p>
-        Quisque quam justo, finibus eget gravida sed, faucibus eu justo. Mauris sem lectus, pretium vitae ultricies et, imperdiet vel eros. Donec luctus interdum auctor. Vestibulum mollis tempor commodo. Duis eleifend dictum nibh, sed lobortis nunc scelerisque vel.
+        {{t 'body'}}
       </p>
       <p>
-        <a href="#">Mer information om hur biblioteket köper in</a>
+        <a href={{t 'link_url'}}>{{t 'link_text'}}</a>
       </p>
     </div>
   </div>
-  
+
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       {{outlet}}

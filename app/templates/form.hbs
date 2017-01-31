@@ -2,10 +2,10 @@
   {{partial "partials/confirmation"}}
 {{else}}
   <div>
-    <h2 class="text-center">Vad vill du att vi köper in?</h2>
+    <h2 class="text-center">{{t 'form.heading'}}</h2>
     {{#button-group-selector value=selectedOrderType items=orderTypes as |orderType orderTypeObject|}}
       <div class="btn-group" role="group">
-        <button type="button" {{action orderTypeObject.setActive}} class="btn btn-default {{if orderTypeObject.isActive 'active'}}">{{orderType}}</button>
+        <button type="button" {{action orderTypeObject.setActive}} class="btn btn-default {{if orderTypeObject.isActive 'active'}}">{{t (concat 'form.order_types.' orderType)}}</button>
       </div>
     {{/button-group-selector}}
   </div>
