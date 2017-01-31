@@ -32,7 +32,7 @@ export default Ember.Route.extend({
       let settings = {
         data: data,
         method: 'POST'
-      }
+      };
 
       Ember.$.ajax(url, settings).then(() => {
         console.log('success!!');

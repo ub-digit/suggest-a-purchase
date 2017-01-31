@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 
   selectedOrderType: null,
-  showConfirmation: true,
+  showConfirmation: false,
 
   selectedOrderTypeIsBook: Ember.computed.equal('selectedOrderType', 'book'),
   selectedOrderTypeIsJournal: Ember.computed.equal('selectedOrderType', 'journal'),
