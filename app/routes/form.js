@@ -12,7 +12,6 @@ export default Ember.Route.extend({
 
   actions: {
     submitOrder() {
-      console.log('submitOrder in route');
 
       let url = 'http://130.241.35.161:3006/easitapi/new';
 
@@ -37,6 +36,7 @@ export default Ember.Route.extend({
 
       Ember.$.ajax(url, settings).then(() => {
         console.log('success!!');
+        this.get('controller').set('showConfirmation', true);
       });
     }
   }
@@ -54,11 +54,3 @@ export default Ember.Route.extend({
 // <input type="hidden" name="special" value="inkop" />
 // <input type="hidden" name="lang"    value="en" />
 // <input type="hidden" name="version" value="init" id="versionField"/>
-
-
-// variable_get('ubn_entityform_ttx2easit_endpoint', 'http://130.241.35.161:3006/easitapi/new'),
-// array(
-//   'headers' => array('Content-Type' => 'application/x-www-form-urlencoded'),
-//   'method' => 'POST',
-//   'data' => http_build_query($ttx_data, '', '&'),
-//   'timeout' => 20,

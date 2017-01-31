@@ -1,60 +1,37 @@
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
+{{#if showConfirmation}}
+  {{partial "partials/confirmation"}}
+{{else}}
+  <div>
     <h2 class="text-center">Vad vill du att vi köper in?</h2>
-
     {{#button-group-selector value=selectedOrderType items=orderTypes as |orderType orderTypeObject|}}
       <div class="btn-group" role="group">
         <button type="button" {{action orderTypeObject.setActive}} class="btn btn-default {{if orderTypeObject.isActive 'active'}}">{{orderType}}</button>
       </div>
     {{/button-group-selector}}
+  </div>
 
-  </div>
-</div>
-{{#unless selectedOrderType}}
-  <div class="row">
-    <div class="col-md-6 col-md-offset-2">
-      Välj vad du vill föreslå
-    </div>
-  </div>
-{{else}}
-  <div class="row">
-    <div class="col-md-6 col-md-offset-2">
+  {{#unless selectedOrderType}}
+    {{partial "partials/select-type-prompt"}}
+  {{else}}
+
+    <div>
       <form>
         {{#if selectedOrderTypeIsBook}}
-          <h3>Beskriv boken</h3>
-          <div class="form-group">
-            <label for="titleInput">Titel</label>
-            {{input type="text" class="form-control" id="titleInput" placeholder="Titel" value=order.book.title}}
-          </div>
-          <div class="form-group">
-            <label for="authorInput">Författare</label>
-            {{input type="text" class="form-control" id="authorInput" placeholder="Författare" value=order.book.author}}
-          </div>
+          {{partial "partials/book-form"}}
         {{/if}}
         {{#if selectedOrderTypeIsJournal}}
-        <h3>Beskriv tidskriften</h3>
-        <div class="form-group">
-          <label for="titleInput">Titel</label>
-          {{input type="text" class="form-control" id="titleInput" placeholder="Titel" value=order.journal.title}}
-        </div>
+          {{partial "partials/journal-form"}}
         {{/if}}
         {{#if selectedOrderTypeIsDatabase}}
-        <h3>Beskriv databasen</h3>
-        <div class="form-group">
-          <label for="titleInput">Titel</label>
-          {{input type="text" class="form-control" id="titleInput" placeholder="Titel" value=order.database.title}}
-        </div>
+          {{partial "partials/database-form"}}
         {{/if}}
         {{#if selectedOrderTypeIsOther}}
-        <h3>Beskriv materialet</h3>
-        <div class="form-group">
-          <label for="titleInput">Beskrivning</label>
-          {{textarea class="form-control" id="titleInput" placeholder="Titel" value=order.other.description}}
-        </div>
+          {{partial "partials/other-form"}}
         {{/if}}
         <button {{action 'submitOrder'}} type="submit" class="btn btn-primary">Skicka</button>
-        </form>
-      </div>
+      </form>
     </div>
 
-{{/unless}}
+  {{/unless}}
+
+{{/if}}
