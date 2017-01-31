@@ -1,12 +1,12 @@
-<div class="btn-group" role="group">
-  <button type="button" class="btn btn-default active">En bok</button>
-</div>
-<div class="btn-group" role="group">
-  <button type="button" class="btn btn-default">En tidskrift</button>
-</div>
-<div class="btn-group" role="group">
-  <button type="button" class="btn btn-default">En databas</button>
-</div>
-<div class="btn-group" role="group">
-  <button type="button" class="btn btn-default">Annat/vet inte</button>
-</div>
+{{#each itemsAsObjects as |item index|}}
+
+  {{yield
+    item.item
+    (hash
+      index=index
+      isActive=item.isActive
+      setActive=(action "setActiveItem" item)
+    )
+  }}
+
+{{/each}}
