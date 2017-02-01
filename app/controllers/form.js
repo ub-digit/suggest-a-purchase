@@ -19,7 +19,10 @@ export default Ember.Controller.extend({
       author: null,
       isbn: null,
       year: null,
-      other: null
+      other: null,
+      eBook: false,
+      reserveBook: false,
+      libraryCard: null
     },
     journal: {
       title: null,

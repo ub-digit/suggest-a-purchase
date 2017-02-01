@@ -7,12 +7,16 @@
   </div>
 </div>
 {{#if showContactInputs}}
-  <div class="form-group">
-    <label for="nameInput">Namn</label>
-    {{input type="text" class="form-control" id="nameInput" placeholder="Namn"}}
+  <div class="row">
+    <div class="form-group col-sm-6">
+      <label for="nameInput">Namn</label>
+      {{input type="text" class="form-control" id="nameInput" placeholder="Namn"}}
+    </div>
   </div>
-  <div class="form-group">
-    <label for="emailInput">Epost</label>
-    {{input type="text" class="form-control" id="emailInput" placeholder="Epost"}}
+  <div class="row">
+    <div class="form-group col-sm-6">
+      <label for="emailInput">Epost</label>
+      {{input type="text" class="form-control" id="emailInput" placeholder="Epost"}}
+    </div>
   </div>
 {{/if}}

@@ -1,21 +1,75 @@
 <h3>Beskriv boken</h3>
-<div class="form-group">
-  <label for="titleInput">Titel</label>
-  {{input type="text" class="form-control" id="titleInput" placeholder="Titel" value=order.book.title}}
+<div class="row">
+  <div class="form-group col-sm-8">
+    <label for="titleInput">Titel</label>
+    {{input type="text" class="form-control" id="titleInput" placeholder="Titel" value=order.book.title}}
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-sm-8">
+    <label for="authorInput">Författare</label>
+    {{input type="text" class="form-control" id="authorInput" placeholder="Författare" value=order.book.author}}
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-sm-8">
+    <label for="isbnInput">ISBN</label>
+    {{input type="text" class="form-control" id="isbnInput" placeholder="ISBN" value=order.book.isbn}}
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-sm-4">
+    <label for="yearInput">År</label>
+    {{input type="text" class="form-control" id="yearInput" placeholder="År" value=order.book.year}}
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-sm-6">
+    <label for="otherInput">Övriga uppgifter</label>
+    {{textarea class="form-control" id="otherInput" value=order.book.other rows=4}}
+  </div>
 </div>
 <div class="form-group">
-  <label for="authorInput">Författare</label>
-  {{input type="text" class="form-control" id="authorInput" placeholder="Författare" value=order.book.author}}
+  <div class="checkbox">
+    <label>
+      {{input checked=order.book.eBook type="checkbox"}} Jag vill helst ha en e-bok, om det finns
+    </label>
+  </div>
+  <span id="helpBlock" class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
 </div>
+<hr>
+<h3>Reservation och avhämtning</h3>
 <div class="form-group">
-  <label for="isbnInput">ISBN</label>
-  {{input type="text" class="form-control" id="isbnInput" placeholder="ISBN" value=order.book.isbn}}
+  <div class="checkbox">
+    <label>
+      {{input checked=order.book.reserveBook type="checkbox"}} Jag vill reservera boken
+    </label>
+  </div>
 </div>
-<div class="form-group">
-  <label for="yearInput">År</label>
-  {{input type="text" class="form-control" id="yearInput" placeholder="År" value=order.book.year}}
+{{#if order.book.reserveBook}}
+  <div class="row">
+    <div class="form-group col-sm-6">
+      <label for="libraryCardInput">Nummer på GU-kort/bibliotekskort</label>
+      {{input type="text" class="form-control" id="libraryCardInput" placeholder="GU-kort/bibliotekskort" value=order.book.libraryCard}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-6">
+      <label for="librarySelect">Jag vill hämta på</label>
+      {{#x-select class="form-control" as |xs|}}
+        <option>Välj</option>
+        <option>Ekonomiska biblioteket</option>
+        <option>Biomedicinska biblioteket</option>
+        <option>Samhällsvetenskapliga biblioteket</option>
+        <option>Humanistiska biblioteket</option>
+      {{/x-select}}
+    </div>
+  </div>
+{{/if}}
+<div class="row">
+  <div class="form-group col-sm-6">
+    <label for="notValidDateInput">Boken är inte aktuell för mig efter</label>
+    {{input type="text" class="form-control" id="notValidDateInput" placeholder="Datum" value=order.book.notValidDate}}
+  </div>
 </div>
-<div class="form-group">
-  <label for="otherInput">Övriga uppgifter</label>
-  {{textarea class="form-control" id="otherInput" value=order.book.other}}
-</div>
+<hr>
