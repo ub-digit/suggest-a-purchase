@@ -4,22 +4,19 @@ export default Ember.Component.extend({
   classNames: ['button-group-selector', 'btn-group', 'btn-group-justified'],
   ariaRole: 'list',
 
-  activeItem: null,
-
   isActiveItem(item) {
-    return this.get('activeItem.item') === item;
+    return this.get('value') === item;
   },
 
-  itemsAsObjects: Ember.computed('items', 'activeItem', function() {
+  itemsAsObjects: Ember.computed('items', 'value', function() {
     return this.get('items').map((item) => {
-      return {item: item, isActive: this.isActiveItem(item)};
+      return {value: item, isActive: this.isActiveItem(item)};
     });
   }),
 
   actions: {
     setActiveItem(item) {
-      this.set('activeItem', item);
-      this.set('value', this.get('activeItem.item'));
+      this.set('value', item.value);
     }
   }
 });

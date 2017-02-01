@@ -1,7 +1,7 @@
 {{#each itemsAsObjects as |item index|}}
 
   {{yield
-    item.item
+    item.value
     (hash
       index=index
       isActive=item.isActive
