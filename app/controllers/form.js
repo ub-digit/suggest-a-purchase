@@ -24,6 +24,14 @@ export default Ember.Controller.extend({
     other: {
       description: null
     }
+  },
+
+  actions: {
+
+    onOrderTypeSelect(value) {
+      this.set('selectedOrderType', value);
+    }
+
   }
 
 });

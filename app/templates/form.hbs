@@ -3,11 +3,21 @@
 {{else}}
   <div>
     <h2 class="text-center">{{t 'form.heading'}}</h2>
-    {{#button-group-selector value=selectedOrderType items=orderTypes as |orderType orderTypeObject|}}
-      <div class="btn-group" role="group">
-        <button type="button" {{action orderTypeObject.setActive}} class="btn btn-default {{if orderTypeObject.isActive 'active'}}">{{t (concat 'form.order_types.' orderType)}}</button>
-      </div>
-    {{/button-group-selector}}
+    <div class="hidden-xs">
+      {{#button-group-selector value=selectedOrderType items=orderTypes as |orderType orderTypeObject|}}
+        <div class="btn-group" role="group">
+          <button type="button" {{action orderTypeObject.setActive}} class="btn btn-default {{if orderTypeObject.isActive 'active'}}">{{t (concat 'form.order_types.' orderType)}}</button>
+        </div>
+      {{/button-group-selector}}
+    </div>
+    <div class="visible-xs">
+      {{#x-select class="form-control" value=selectedOrderType on-change=(action 'onOrderTypeSelect') as |xs|}}
+        <option>Välj</option>
+        {{#each orderTypes as |orderType|}}
+          {{#xs.option value=orderType}}{{t (concat 'form.order_types.' orderType)}}{{/xs.option}}
+        {{/each}}
+      {{/x-select}}
+    </div>
   </div>
 
   {{#unless selectedOrderType}}
