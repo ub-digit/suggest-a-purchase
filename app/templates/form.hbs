@@ -29,16 +29,22 @@
         {{#if selectedOrderTypeIsBook}}
           {{partial "partials/book-form"}}
         {{/if}}
+
         {{#if selectedOrderTypeIsJournal}}
           {{partial "partials/journal-form"}}
         {{/if}}
+
         {{#if selectedOrderTypeIsDatabase}}
           {{partial "partials/database-form"}}
         {{/if}}
+
         {{#if selectedOrderTypeIsOther}}
           {{partial "partials/other-form"}}
         {{/if}}
-        <button {{action 'submitOrder'}} type="submit" class="btn btn-primary">Skicka</button>
+
+        {{partial "partials/personal-details-form"}}
+
+        <button {{action 'submitOrder'}} type="submit" class="btn btn-primary btn-lg">Skicka</button>
       </form>
     </div>
 

@@ -1,0 +1,18 @@
+<h3>Dina uppgifter</h3>
+<div class="form-group">
+  <div class="checkbox">
+    <label>
+      {{input checked=contactOptOut type="checkbox"}} Jag vill inte bli kontaktad
+    </label>
+  </div>
+</div>
+{{#if showContactInputs}}
+  <div class="form-group">
+    <label for="nameInput">Namn</label>
+    {{input type="text" class="form-control" id="nameInput" placeholder="Namn"}}
+  </div>
+  <div class="form-group">
+    <label for="emailInput">Epost</label>
+    {{input type="text" class="form-control" id="emailInput" placeholder="Epost"}}
+  </div>
+{{/if}}

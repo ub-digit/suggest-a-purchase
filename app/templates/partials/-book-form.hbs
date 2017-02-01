@@ -7,3 +7,15 @@
   <label for="authorInput">Författare</label>
   {{input type="text" class="form-control" id="authorInput" placeholder="Författare" value=order.book.author}}
 </div>
+<div class="form-group">
+  <label for="isbnInput">ISBN</label>
+  {{input type="text" class="form-control" id="isbnInput" placeholder="ISBN" value=order.book.isbn}}
+</div>
+<div class="form-group">
+  <label for="yearInput">År</label>
+  {{input type="text" class="form-control" id="yearInput" placeholder="År" value=order.book.year}}
+</div>
+<div class="form-group">
+  <label for="otherInput">Övriga uppgifter</label>
+  {{textarea class="form-control" id="otherInput" value=order.book.other}}
+</div>
