@@ -4,6 +4,7 @@ export default {
   body: 'Quisque quam justo, finibus eget gravida sed, faucibus eu justo. Mauris sem lectus, pretium vitae ultricies et, imperdiet vel eros. Donec luctus interdum auctor. Vestibulum mollis tempor commodo. Duis eleifend dictum nibh, sed lobortis nunc scelerisque vel.',
   link_text: 'Mer information om hur bibliteket gör inköp',
   link_url: 'www',
+  language_link: 'In English',
 
   form: {
     heading: 'Vad vill du att vi köper in?',
