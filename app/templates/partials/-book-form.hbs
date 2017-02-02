@@ -1,75 +1,74 @@
-<h3>Beskriv boken</h3>
+<h3>{{t 'form.book_form.heading'}}</h3>
 <div class="row">
   <div class="form-group col-sm-8">
-    <label for="titleInput">Titel</label>
-    {{input type="text" class="form-control" id="titleInput" placeholder="Titel" value=order.book.title}}
+    <label for="titleInput">{{t 'form.book_form.title_label'}}</label>
+    {{input type="text" class="form-control" id="titleInput" placeholder=(t 'form.book_form.title_placeholder') value=order.book.title}}
   </div>
 </div>
 <div class="row">
   <div class="form-group col-sm-8">
-    <label for="authorInput">Författare</label>
-    {{input type="text" class="form-control" id="authorInput" placeholder="Författare" value=order.book.author}}
+    <label for="authorInput">{{t 'form.book_form.author_label'}}</label>
+    {{input type="text" class="form-control" id="authorInput" placeholder=(t 'form.book_form.author_placeholder') value=order.book.author}}
   </div>
 </div>
 <div class="row">
   <div class="form-group col-sm-8">
-    <label for="isbnInput">ISBN</label>
-    {{input type="text" class="form-control" id="isbnInput" placeholder="ISBN" value=order.book.isbn}}
+    <label for="isbnInput">{{t 'form.book_form.isbn_label'}}</label>
+    {{input type="text" class="form-control" id="isbnInput" placeholder=(t 'form.book_form.isbn_placeholder') value=order.book.isbn}}
   </div>
 </div>
 <div class="row">
   <div class="form-group col-sm-4">
-    <label for="yearInput">År</label>
-    {{input type="text" class="form-control" id="yearInput" placeholder="År" value=order.book.year}}
+    <label for="yearInput">{{t 'form.book_form.year_label'}}</label>
+    {{input type="text" class="form-control" id="yearInput" placeholder=(t 'form.book_form.year_placeholder') value=order.book.year}}
   </div>
 </div>
 <div class="row">
   <div class="form-group col-sm-6">
-    <label for="otherInput">Övriga uppgifter</label>
+    <label for="otherInput">{{t 'form.book_form.other_label'}}</label>
     {{textarea rows=4 class="form-control" id="otherInput" value=order.book.other}}
   </div>
 </div>
 <div class="form-group">
   <div class="checkbox">
     <label>
-      {{input checked=order.book.eBook type="checkbox"}} Jag vill helst ha en e-bok, om det finns
+      {{input checked=order.book.eBook type="checkbox"}} {{t 'form.book_form.eBook_label'}}
     </label>
   </div>
-  <span id="helpBlock" class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+  <span id="helpBlock" class="help-block">{{t 'form.book_form.eBook_help_text'}}</span>
 </div>
 <hr>
-<h3>Reservation och avhämtning</h3>
+<h3>{{t 'form.book_form.reservation_heading'}}</h3>
 <div class="form-group">
   <div class="checkbox">
     <label>
-      {{input checked=order.book.reserveBook type="checkbox"}} Jag vill reservera boken
+      {{input checked=order.book.reserveBook type="checkbox"}} {{t 'form.book_form.reserve_label'}}
     </label>
   </div>
 </div>
 {{#if order.book.reserveBook}}
   <div class="row">
     <div class="form-group col-sm-6">
-      <label for="libraryCardInput">Nummer på GU-kort/bibliotekskort</label>
-      {{input type="text" class="form-control" id="libraryCardInput" placeholder="GU-kort/bibliotekskort" value=order.book.libraryCard}}
+      <label for="libraryCardInput">{{t 'form.book_form.library_card_label'}}</label>
+      {{input type="text" class="form-control" id="libraryCardInput" placeholder=(t 'form.book_form.library_card_placeholder') value=order.book.libraryCard}}
     </div>
   </div>
   <div class="row">
     <div class="form-group col-sm-6">
-      <label for="librarySelect">Jag vill hämta på</label>
-      {{#x-select class="form-control" as |xs|}}
-        <option>Välj</option>
-        <option>Ekonomiska biblioteket</option>
-        <option>Biomedicinska biblioteket</option>
-        <option>Samhällsvetenskapliga biblioteket</option>
-        <option>Humanistiska biblioteket</option>
+      <label for="librarySelect">{{t 'form.book_form.pickup_label'}}</label>
+      {{#x-select class="form-control" value=order.book.library as |xs|}}
+        <option>{{t 'form.book_form.pickup_prompt'}}</option>
+          {{#each libraries as |library|}}
+            {{#xs.option value=library.code}}{{library.label}}{{/xs.option}}
+          {{/each}}
       {{/x-select}}
     </div>
   </div>
 {{/if}}
 <div class="row">
   <div class="form-group col-sm-6">
-    <label for="notValidDateInput">Boken är inte aktuell för mig efter</label>
-    {{input type="text" class="form-control" id="notValidDateInput" placeholder="Datum" value=order.book.notValidDate}}
+    <label for="validDateInput">{{t 'form.book_form.valid_date_label'}}</label>
+    {{input type="text" class="form-control" id="validDateInput" placeholder=(t 'form.book_form.valid_date_placeholder') value=order.book.validDate}}
   </div>
 </div>
 <hr>

@@ -6,6 +6,18 @@ export default {
   link_url: 'www',
   language_link: 'In English',
 
+  libraries: {
+    g: 'Humanistiska biblioteket',
+    gcl: 'Studietorget Campus Linné',
+    ge: 'Ekonomiska biblioteket',
+    ghdk: 'Konstbiblioteket',
+    gk: 'Samhällsvetenskapliga biblioteket',
+    gm: 'Biomedicinska biblioteket',
+    gp: 'Pedagogiska biblioteket',
+    gumu: 'Biblioteket för musik och dramatik',
+    gv: 'Studietorget Hälsovetarbacken'
+  },
+
   form: {
     heading: 'Vad vill du att vi köper in?',
     order_types: {
@@ -13,6 +25,28 @@ export default {
       journal: 'En tidskrift',
       database: 'En databas',
       other: 'Annat/vet inte'
+    },
+    book_form: {
+      heading: 'Beskriv boken',
+      title_label: 'Titel',
+      title_placeholder: 'Titel',
+      author_label: 'Författare',
+      author_placeholder: 'Författare',
+      isbn_label: 'ISBN',
+      isbn_placeholder: 'ISBN',
+      year_label: 'År',
+      year_placeholder: 'År',
+      other_label: 'Övriga uppgifter',
+      eBook_label: 'Jag vill helst ha en e-bok, om det finns',
+      eBook_help_text: 'Om vad som är skillnaden mellan en e-bok och en vanlig bok.',
+      reservation_heading: 'Reservation och avhämtning',
+      reserve_label: 'Jag vill reservera boken',
+      library_card_label: 'Nummer på GU-kort/bibliotekskort',
+      library_card_placeholder: 'GU-kort/bibliotekskort',
+      pickup_label: 'Jag vill hämta på',
+      pickup_prompt: 'Välj ett bibliotek',
+      valid_date_label: 'Boken är inte aktuell för mig efter',
+      valid_date_placeholder: 'Datum'
     }
   }
 };

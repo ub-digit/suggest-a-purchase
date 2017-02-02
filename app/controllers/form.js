@@ -1,6 +1,8 @@
 import Ember from 'ember';
+import { translationMacro as t } from "ember-i18n";
 
 export default Ember.Controller.extend({
+  i18n: Ember.inject.service(),
 
   selectedOrderType: null,
   showConfirmation: false,
@@ -13,6 +15,17 @@ export default Ember.Controller.extend({
 
   showContactInputs: Ember.computed.equal('contactOptOut', false),
 
+  libraries: Ember.computed('i18n.locale', function() {
+    let libCodes = Ember.A(['g', 'gcl', 'ge', 'ghdk', 'gk', 'gm', 'gp', 'gumu', 'gv']);
+    return libCodes = libCodes.map((code) => {
+      return {
+        key: code,
+        label: this.get('i18n').t(`libraries.${code}`)
+      };
+    });
+
+  }),
+
   order: {
     book: {
       title: null,
@@ -22,7 +35,10 @@ export default Ember.Controller.extend({
       other: null,
       eBook: false,
       reserveBook: false,
-      libraryCard: null
+      library: null,
+      libraryCard: null,
+      pickup: null,
+      validDate: null
     },
     journal: {
       title: null,
@@ -39,11 +55,9 @@ export default Ember.Controller.extend({
   },
 
   actions: {
-
     onOrderTypeSelect(value) {
       this.set('selectedOrderType', value);
     }
-
   }
 
 });
