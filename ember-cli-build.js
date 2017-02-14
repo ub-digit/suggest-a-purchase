@@ -12,26 +12,25 @@ module.exports = function(defaults) {
     }
   });
 
-  app.import('bower_components/bootstrap/dist/js/bootstrap.js');
+  app.import(app.bowerDirectory + '/bootstrap/dist/js/bootstrap.js');
 
-  app.import('bower_components/font-awesome/fonts/fontawesome-webfont.eot', {
+  app.import(app.bowerDirectory + '/font-awesome/fonts/fontawesome-webfont.eot', {
     destDir: 'fonts'
   });
-  app.import('bower_components/font-awesome/fonts/fontawesome-webfont.svg', {
+  app.import(app.bowerDirectory + '/font-awesome/fonts/fontawesome-webfont.svg', {
     destDir: 'fonts'
   });
-  app.import('bower_components/font-awesome/fonts/fontawesome-webfont.ttf', {
+  app.import(app.bowerDirectory + '/font-awesome/fonts/fontawesome-webfont.ttf', {
     destDir: 'fonts'
   });
-  app.import('bower_components/font-awesome/fonts/fontawesome-webfont.woff', {
+  app.import(app.bowerDirectory + '/font-awesome/fonts/fontawesome-webfont.woff', {
     destDir: 'fonts'
   });
-  app.import('bower_components/font-awesome/fonts/fontawesome-webfont.woff2', {
+  app.import(app.bowerDirectory + '/font-awesome/fonts/fontawesome-webfont.woff2', {
     destDir: 'fonts'
   });
-  app.import('bower_components/font-awesome/fonts/FontAwesome.otf', {
-    destDir: 'fonts'
-  });
+
+  app.import(app.bowerDirectory + '/bootstrap-datepicker/dist/locales/bootstrap-datepicker.sv.min.js');
 
   // Use `app.import` to add additional libraries to the generated
   // output files.

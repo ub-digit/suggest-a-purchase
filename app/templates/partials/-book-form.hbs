@@ -43,7 +43,10 @@
 <div class="row">
   <div class="form-group col-sm-6">
     <label for="validDateInput">{{t 'form.book_form.valid_date_label'}}</label>
-    {{input type="text" class="form-control" id="validDateInput" placeholder=(t 'form.book_form.valid_date_placeholder') value=order.book.validDate}}
+    <div class="input-group">
+      {{bootstrap-datepicker class="form-control" language=i18n.locale placeholder=(t 'form.book_form.valid_date_placeholder') value=order.book.validDate changeDate="onDateChange"}}
+      <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+    </div>
   </div>
 </div>
 <hr>

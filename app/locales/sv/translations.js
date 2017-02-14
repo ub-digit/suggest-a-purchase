@@ -37,7 +37,7 @@ export default {
       year_label: 'År',
       year_placeholder: 'År',
       other_label: 'Övriga uppgifter',
-      book_type_label: 'Vill du ha en e-bok eller en tryckt bok?',      
+      book_type_label: 'Vill du helst ha en e-bok eller en tryckt bok?',      
       book_type_options: {
         print: 'Tryckt',
         e: 'E-bok',

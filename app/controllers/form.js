@@ -81,16 +81,21 @@ export default Ember.Controller.extend({
     },
 
     onLibrarySelect(value) {
-      let libraryGroupString = this.get('libraries').findBy('code', value);
+      let libraryGroupString = value ? this.get('libraries').findBy('code', value).value : 'nochoice';
 
       this.set('selectedLibrary', value);
       this.set('order.book.library', libraryGroupString);
     },
+
     onBookTypeSelect(value) {
       let bookTypeString = this.get('bookTypeOptions').findBy('value', value);
 
       this.set('selectedBookType', value);
-      this.set('order.book.bookType', )
+      this.set('order.book.bookType', bookTypeString);
+    },
+
+    changeDate(date) {
+      this.set('order.book.validDate', date);
     }
   }
 
