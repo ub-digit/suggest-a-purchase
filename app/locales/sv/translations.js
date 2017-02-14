@@ -37,8 +37,13 @@ export default {
       year_label: 'År',
       year_placeholder: 'År',
       other_label: 'Övriga uppgifter',
-      eBook_label: 'Jag vill helst ha en e-bok, om det finns',
-      eBook_help_text: 'Om vad som är skillnaden mellan en e-bok och en vanlig bok.',
+      book_type_label: 'Vill du ha en e-bok eller en tryckt bok?',      
+      book_type_options: {
+        print: 'Tryckt',
+        e: 'E-bok',
+        any: 'Spelar ingen roll'
+      },
+      e_book_help_text: 'Om vad som är skillnaden mellan en e-bok och en vanlig bok.',
       reservation_heading: 'Reservation och avhämtning',
       reserve_label: 'Jag vill reservera boken',
       library_card_label: 'Nummer på GU-kort/bibliotekskort',

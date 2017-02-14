@@ -29,13 +29,22 @@
     {{textarea rows=4 class="form-control" id="otherInput" value=order.book.other}}
   </div>
 </div>
-<div class="form-group">
-  <div class="checkbox">
-    <label>
-      {{input checked=order.book.eBook type="checkbox"}} {{t 'form.book_form.eBook_label'}}
-    </label>
+<div class="row">
+  <div class="form-group col-sm-6">
+    <label for="bookTypeSelect">{{t 'form.book_form.book_type_label'}}</label>
+    {{#x-select id="bookTypeSelect" class="form-control" action="onBookTypeSelect" value=selectedBookType as |xs|}}
+      {{#each bookTypeOptions as |type|}}
+        {{#xs.option value=type.value}}{{type.label}}{{/xs.option}}
+      {{/each}}
+    {{/x-select}}
+    <span class="help-block">{{t 'form.book_form.e_book_help_text'}}</span>
   </div>
-  <span id="helpBlock" class="help-block">{{t 'form.book_form.eBook_help_text'}}</span>
+</div>
+<div class="row">
+  <div class="form-group col-sm-6">
+    <label for="validDateInput">{{t 'form.book_form.valid_date_label'}}</label>
+    {{input type="text" class="form-control" id="validDateInput" placeholder=(t 'form.book_form.valid_date_placeholder') value=order.book.validDate}}
+  </div>
 </div>
 <hr>
 <h3>{{t 'form.book_form.reservation_heading'}}</h3>
@@ -56,7 +65,7 @@
   <div class="row">
     <div class="form-group col-sm-6">
       <label for="librarySelect">{{t 'form.book_form.pickup_label'}}</label>
-      {{#x-select class="form-control" value=order.book.library as |xs|}}
+      {{#x-select class="form-control" action="onLibrarySelect" value=selectedLibrary as |xs|}}
         <option>{{t 'form.book_form.pickup_prompt'}}</option>
           {{#each libraries as |library|}}
             {{#xs.option value=library.code}}{{library.label}}{{/xs.option}}
@@ -65,10 +74,4 @@
     </div>
   </div>
 {{/if}}
-<div class="row">
-  <div class="form-group col-sm-6">
-    <label for="validDateInput">{{t 'form.book_form.valid_date_label'}}</label>
-    {{input type="text" class="form-control" id="validDateInput" placeholder=(t 'form.book_form.valid_date_placeholder') value=order.book.validDate}}
-  </div>
-</div>
 <hr>
